@@ -1,0 +1,16 @@
+<div class="login-modal">
+	<div class="login-form">
+		<form (ngSubmit)="loginUser()">
+		  <ion-item>
+		    <ion-label>Username</ion-label>
+		    <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>Password</ion-label>
+		    <ion-input [(ngModel)]="password" name="password"></ion-input>
+		  </ion-item>
+		  <button ion-button type="submit" block>Log in</button>
+		  <button ion-button block>Register new user</button>
+		</form>
+	</div>
+</div>
