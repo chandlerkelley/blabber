@@ -21,15 +21,16 @@ export class AuthService {
 		}
 	};
 
-	loginUser() {
+	loginUser(credentials) {
 		return new Promise(resolve => {
-			this.http.get('https://bfapp-bfsharing.rhcloud.com/test')
+			this.http.post('https://bfapp-bfsharing.rhcloud.com/login', credentials)
 			.subscribe(
-				function(res) {
-					resolve(res);
+				function(res: any) {
+					this.user = res._body;
+					resolve(this.user);
 				},
 				function(err) {
-					console.log(err);
+					resolve(err);
 				}
 			);
 		})

@@ -15,10 +15,10 @@ export class LoginModal {
 							private authService: AuthService) {
 	}
 
-	user: {};
+	credentials: any = {};
 
 	loginUser(): void {
-		this.authService.loginUser()
+		this.authService.loginUser(this.credentials)
 		.then(res => {
 			console.log(res);
 		})
