@@ -8,8 +8,7 @@ import { LoginModal } from '../login/login';
 import { AuthService } from '../../providers/auth-service';
 
 @Component({
-  templateUrl: 'tabs.html',
-  providers: [AuthService]
+  templateUrl: 'tabs.html'
 })
 export class TabsPage {
   // this tells the tabs component which Pages

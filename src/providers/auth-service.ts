@@ -7,11 +7,17 @@ import { User } from '../app/user';
 @Injectable()
 export class AuthService {
 
+	user: User;
+
+	test: string;
+
+	setTest(string) {
+		this.test = string;
+	}
+
   constructor(public http: Http) {
     console.log('Hello AuthService Provider');
   }
-
-  user: User;
 
 	returnCurrentUser() {
 		return this.user;
