@@ -14,25 +14,37 @@ export class AuthService {
   user: User;
 
 	returnCurrentUser() {
-		if(this.user) {
-			return this.user;
-		} else {
-			return null;
-		}
+		return this.user;
 	};
 
 	loginUser(credentials) {
 		return new Promise(resolve => {
 			this.http.post('https://bfapp-bfsharing.rhcloud.com/login', credentials)
 			.subscribe(
-				function(res: any) {
+				(res: any) => {
 					this.user = res._body;
 					resolve(this.user);
 				},
-				function(err) {
+				(err) => {
 					resolve(err);
 				}
 			);
+		})
+	}
+
+	isLoggedIn() {
+		return new Promise(resolve => {
+			this.http.get('https://bfapp-bfsharing.rhcloud.com/user')
+			.subscribe(
+				function(res) {
+					console.log(res);
+					return true;
+				},
+				function(err) {
+					console.log(err);
+					return false;
+				}
+			)
 		})
 	}
 

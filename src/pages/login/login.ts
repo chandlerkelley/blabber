@@ -5,8 +5,7 @@ import { AuthService } from '../../providers/auth-service';
 
 @Component({
 	selector: 'modal-login',
-	templateUrl: 'login.html',
-	providers: [AuthService]
+	templateUrl: 'login.html'
 })
 export class LoginModal {
 	
@@ -21,6 +20,7 @@ export class LoginModal {
 		this.authService.loginUser(this.credentials)
 		.then(res => {
 			console.log(res);
+			this.viewCtrl.dismiss();
 		})
 	}
 

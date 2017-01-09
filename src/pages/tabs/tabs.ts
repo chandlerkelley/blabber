@@ -5,9 +5,11 @@ import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { LoginModal } from '../login/login';
+import { AuthService } from '../../providers/auth-service';
 
 @Component({
-  templateUrl: 'tabs.html'
+  templateUrl: 'tabs.html',
+  providers: [AuthService]
 })
 export class TabsPage {
   // this tells the tabs component which Pages
@@ -16,12 +18,14 @@ export class TabsPage {
   tab2Root: any = AboutPage;
   tab3Root: any = ContactPage;
 
-  constructor(public Modal: ModalController, public nav: NavController) {
+  constructor(public Modal: ModalController,
+              public nav: NavController,
+              private authService: AuthService) {
 
   }
 
   loadLogin(): void {
-  	if(true) {
+  	if(this.authService.isLoggedIn()) {
   		const MODAL = this.Modal.create(LoginModal);
       MODAL.present();
   	}
