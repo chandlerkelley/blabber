@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';;
@@ -21,6 +21,14 @@ export class HomePage {
 
   showPost() {
   	this.navCtrl.push(PostPage)
+  }
+
+  showFeed() {
+    console.log("showFeed function");
+    this.authService.getFeed()
+    .then( (res) => {
+      console.log(res);
+    })
   }
 
 }

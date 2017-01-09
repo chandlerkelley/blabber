@@ -44,13 +44,23 @@ export class AuthService {
 			.subscribe(
 				function(res) {
 					console.log(res);
-					return true;
+					resolve(true);
 				},
 				function(err) {
 					console.log(err);
-					return false;
+					resolve(false);
 				}
 			)
+		})
+	}
+
+	getFeed() {
+		return new Promise(resolve => {
+			this.http.get('http://bfapp-bfsharing.rhcloud.com/feed')
+			.subscribe(
+				(res) => {
+					resolve(res);
+				})
 		})
 	}
 

@@ -7,15 +7,14 @@ import { AuthService } from '../providers/auth-service';
 
 
 @Component({
-  templateUrl: 'app.html',
-  providers: [AuthService]
+  templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage = TabsPage;
 
   constructor(platform: Platform,
               private authService: AuthService) {
-              
+
     authService.setTest("This is a test");
 
     platform.ready().then(() => {
