@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
-import { TabsPage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
 	selector: 'page-login',
@@ -22,9 +22,5 @@ export class LoginPage {
 			console.log(res);
 			this.navCtrl.setRoot(TabsPage);
 		})
-	}
-
-	dismiss(data) {
-		this.viewCtrl.dismiss(data);
 	}
 }
