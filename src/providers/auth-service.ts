@@ -25,9 +25,10 @@ export class AuthService {
 
 	loginUser(credentials) {
 		return new Promise(resolve => {
-			this.http.post('https://bfapp-bfsharing.rhcloud.com/login', credentials)
+			this.http.post('https://bfapp-bfsharing.rhcloud.com/login', credentials, { withCredentials: true })
 			.subscribe(
 				(res: any) => {
+					console.log(res);
 					this.user = res._body;
 					resolve(this.user);
 				},
@@ -40,7 +41,7 @@ export class AuthService {
 
 	isLoggedIn() {
 		return new Promise(resolve => {
-			this.http.get('https://bfapp-bfsharing.rhcloud.com/user')
+			this.http.get('https://bfapp-bfsharing.rhcloud.com/user', { withCredentials: true })
 			.subscribe(
 				function(res) {
 					console.log(res);
@@ -56,7 +57,7 @@ export class AuthService {
 
 	getFeed() {
 		return new Promise(resolve => {
-			this.http.get('http://bfapp-bfsharing.rhcloud.com/feed')
+			this.http.get('http://bfapp-bfsharing.rhcloud.com/feed', { withCredentials: true })
 			.subscribe(
 				(res) => {
 					resolve(res);

@@ -5,7 +5,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { LoginModal } from '../pages/login/login';
+import { LoginPage } from '../pages/login/login';
 import { PostPage } from '../pages/post/post';
 import { AuthService } from '../providers/auth-service';
 
@@ -17,7 +17,7 @@ import { AuthService } from '../providers/auth-service';
     HomePage,
     TabsPage,
     PostPage,
-    LoginModal
+    LoginPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,7 +30,7 @@ import { AuthService } from '../providers/auth-service';
     HomePage,
     TabsPage,
     PostPage,
-    LoginModal
+    LoginPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]
 })

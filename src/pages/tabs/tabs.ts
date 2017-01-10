@@ -4,7 +4,6 @@ import { ModalController, NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
-import { LoginModal } from '../login/login';
 import { AuthService } from '../../providers/auth-service';
 
 @Component({
@@ -21,16 +20,5 @@ export class TabsPage {
               public nav: NavController,
               private authService: AuthService) {
 
-  }
-
-  loadLogin(): void {
-  	if(this.authService.isLoggedIn()) {
-  		const MODAL = this.Modal.create(LoginModal);
-      MODAL.present();
-  	}
-  }
-
-  ngOnInit(): void {
-    this.loadLogin();
   }
 }

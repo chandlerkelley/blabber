@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { NavParams, ViewController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
+import { TabsPage } from '../home/home';
 
 @Component({
-	selector: 'modal-login',
+	selector: 'page-login',
 	templateUrl: 'login.html'
 })
-export class LoginModal {
+export class LoginPage {
 	
-	constructor(private viewCtrl: ViewController,
-							private params: NavParams,
+	constructor(private navCtrl: NavController,
 							private authService: AuthService) {
 	}
 
@@ -20,7 +20,7 @@ export class LoginModal {
 		this.authService.loginUser(this.credentials)
 		.then(res => {
 			console.log(res);
-			this.viewCtrl.dismiss();
+			this.navCtrl.setRoot(TabsPage);
 		})
 	}
 
