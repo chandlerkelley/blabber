@@ -3,7 +3,7 @@ import { ModalController, NavController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { PostPage } from '../post/post';
-import { ContactPage } from '../contact/contact';
+import { UserPage } from '../user/user';
 import { AuthService } from '../../providers/auth-service';
 
 @Component({
@@ -14,7 +14,7 @@ export class TabsPage {
   // should be each tab's root Page
   tab1Root: any = HomePage;
   tab2Root: any = PostPage;
-  tab3Root: any = ContactPage;
+  tab3Root: any = UserPage;
 
   constructor(public Modal: ModalController,
               public nav: NavController,

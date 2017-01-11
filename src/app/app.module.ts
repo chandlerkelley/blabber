@@ -5,6 +5,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { PostPage } from '../pages/post/post';
+import { UserPage } from '../pages/user/user';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { PostViewPage } from '../pages/post-view/post-view';
@@ -17,6 +18,7 @@ import { AuthService } from '../providers/auth-service';
     ContactPage,
     HomePage,
     PostPage,
+    UserPage,
     TabsPage,
     PostViewPage,
     LoginPage
@@ -31,6 +33,7 @@ import { AuthService } from '../providers/auth-service';
     ContactPage,
     HomePage,
     PostPage,
+    UserPage,
     TabsPage,
     PostViewPage,
     LoginPage

@@ -40,6 +40,17 @@ export class AuthService {
 		})
 	}
 
+	logout() {
+		return new Promise(resolve => {
+			this.http.post('https://bfapp-bfsharing.rhcloud.com/logout', { withCredentials: true })
+			.subscribe(
+				(res) => {
+					resolve(res);
+				}
+			)
+		})
+	}
+
 	isLoggedIn() {
 		return new Promise(resolve => {
 			this.http.get('https://bfapp-bfsharing.rhcloud.com/user', { withCredentials: true })
