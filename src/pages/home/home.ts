@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';;
@@ -15,6 +15,8 @@ export class HomePage {
 
   };
 
+  feed: any[];
+
   logUser() {
   	console.log(this.authService.returnCurrentUser());
   }
@@ -23,12 +25,15 @@ export class HomePage {
   	this.navCtrl.push(PostPage)
   }
 
-  showFeed() {
-    console.log("showFeed function");
+  getFeed() {
     this.authService.getFeed()
-    .then( (res) => {
-      console.log(res);
-    })
+    .then( (data: any) => {
+      this.feed = data;
+    });
+  }
+
+  ionViewDidLoad() {
+    this.getFeed();
   }
 
 }

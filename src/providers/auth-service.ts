@@ -58,9 +58,10 @@ export class AuthService {
 	getFeed() {
 		return new Promise(resolve => {
 			this.http.get('http://bfapp-bfsharing.rhcloud.com/feed', { withCredentials: true })
+      .map(res => res.json())
 			.subscribe(
-				(res) => {
-					resolve(res);
+				(data) => {
+					resolve(data);
 				})
 		})
 	}

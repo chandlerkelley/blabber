@@ -7,5 +7,9 @@
 <ion-content padding>
   <h2>Welcome to Blah!</h2>
   <button ion-button (click)="logUser()">Log the user!</button>
-  <button ion-button (click)="showFeed()">Log the feed!</button>
+  <div *ngFor="let post of feed; let i=index">
+  	<div *ngIf="i<20" class="post">
+  		{{post.postText}}
+  	</div>
+  </div>
 </ion-content>
