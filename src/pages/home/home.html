@@ -1,12 +1,10 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="test">
+    <ion-title class="custom-header">Feed</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Blah!</h2>
-  <button ion-button (click)="logUser()">Log the user!</button>
+<ion-content padding class="home-page">
   <div *ngFor="let post of feed; let i=index">
   	<div *ngIf="i<20" class="post">
   		{{post.postText}}
