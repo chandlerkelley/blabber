@@ -25,7 +25,7 @@ export class PostPage {
   	this.authService.submitPost(postObj)
   	.then( (res) => {
   		console.log(res);
-  		this.navCtrl.parent.select(1);
+  		this.navCtrl.parent.select(0);
   	})
   }
 

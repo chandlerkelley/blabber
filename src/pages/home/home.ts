@@ -38,7 +38,7 @@ export class HomePage {
     });
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.getFeed();
   }
 
