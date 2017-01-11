@@ -7,6 +7,15 @@
 </ion-header>
 
 <ion-content padding>
- <h1>User view</h1>
- <button ion-button (click)="logout()">Log out</button>
+	<div class="post-header" *ngIf="user">
+		<img class="user-icon lrg-icon" src="http://bfapp-bfsharing.rhcloud.com{{user.imageUrl}}" />
+		<div class="user-info">
+			<h1 class="username lrg-username">{{user.username}}</h1>
+			<p>Blabbering for {{userTimeSince}}</p>
+		</div>
+	</div>
+	<div class="user-buttons">
+		<button color="post" ion-button block><b>Change profile picture</b></button>
+		<button color="post" ion-button block (click)="logout()"><b>Log out</b></button>
+	</div>
 </ion-content>
