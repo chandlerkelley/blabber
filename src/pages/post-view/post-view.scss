@@ -21,7 +21,11 @@
 	border: none;
 }
 
-.submit-comment button {
+ion-input {
+	margin: 0;
+}
+
+.submit-button {
 	background: #8EA5EB;
 	padding: 1.5vh 2vh;
 	color: #fff;
