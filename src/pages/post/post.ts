@@ -18,15 +18,17 @@ export class PostPage {
   post: string;
 
   submitPost() {
-  	let postObj = {
-  		username: this.user.username,
-  		postText: this.post
-  	}
-  	this.authService.submitPost(postObj)
-  	.then( (res) => {
-  		console.log(res);
-  		this.navCtrl.parent.select(0);
-  	})
+    if (this.post && this.post.length > 0) {
+      let postObj = {
+        username: this.user.username,
+        postText: this.post
+      }
+      this.authService.submitPost(postObj)
+      .then( (res) => {
+        console.log(res);
+        this.navCtrl.parent.select(0);
+      })
+    }
   }
 
   ionViewDidLoad() {
