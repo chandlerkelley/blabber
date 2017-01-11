@@ -80,4 +80,16 @@ export class AuthService {
 		})
 	}
 
+	submitComment(comment) {
+		return new Promise(resolve => {
+			this.http.post('http://bfapp-bfsharing.rhcloud.com/comment', comment, { withCredentials: true })
+			.map(res => res.json())
+			.subscribe(
+				(data) => {
+					resolve(data);
+				}
+			)
+		})
+	}
+
 }

@@ -10,7 +10,14 @@
   		<img class="user-icon" src="http://bfapp-bfsharing.rhcloud.com{{post.postUser.imageUrl}}" />
   		<h1 class="username">{{post.postUser.username}}</h1>
 		</div>
+		
 		<p>{{post.postText}}</p>
+
+		<div class="submit-comment">
+			<input [(ngModel)]="comment" placeholder="Write a comment..." />
+			<button (click)="submitComment()">POST</button>
+		</div>
+
 		<div *ngFor="let comment of post.comments" class="post-comment">
   		<img class="user-icon" src="http://bfapp-bfsharing.rhcloud.com{{comment.commentUser.imageUrl}}" />
   		<div class="comment-text">

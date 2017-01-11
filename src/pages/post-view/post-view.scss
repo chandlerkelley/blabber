@@ -7,3 +7,18 @@
 .post-comment p {
 	margin: 0 0 0 2vh;
 }
+
+.submit-comment {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 1vh 0;
+	display: flex;
+	alilgn-items: center;
+	justify-content: space-between;
+}
+
+.submit-comment button {
+	background: #8EA5EB;
+	padding: 1vh;
+	color: #fff;
+}
