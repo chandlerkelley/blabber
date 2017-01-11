@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';;
-import { PostPage } from '../post/post'
+import { PostViewPage } from '../post-view/post-view'
 
 @Component({
   selector: 'page-home',
@@ -24,7 +24,7 @@ export class HomePage {
   showPost(postId) {
     for (let post of this.feed) {
       if (post._id === postId) {
-        this.navCtrl.push(PostPage, {
+        this.navCtrl.push(PostViewPage, {
           post: post
         })
       }

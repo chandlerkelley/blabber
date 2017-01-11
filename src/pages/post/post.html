@@ -1,18 +1,14 @@
 <ion-header>
   <ion-navbar color="test">
-    <ion-title>Post</ion-title>
+    <ion-title>
+      Post
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div class="post" *ngIf="post">
-		<div class="post-header">
-  		<img class="user-icon" src="http://bfapp-bfsharing.rhcloud.com{{post.postUser.imageUrl}}" />
-  		<h1>{{post.postUser.username}}</h1>
-		</div>
-		<p>{{post.postText}}</p>
-		<div *ngFor="let comment of post.comments" class="post-comment">
-			<p>{{comment.commentText}}</p>
-		</div>
+	<div class="post-header" *ngIf="user">
+		<img class="user-icon" src="http://bfapp-bfsharing.rhcloud.com{{user.imageUrl}}" />
+		<h1 class="username">{{user.username}}</h1>
 	</div>
 </ion-content>

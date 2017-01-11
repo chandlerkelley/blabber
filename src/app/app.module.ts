@@ -4,9 +4,10 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { PostPage } from '../pages/post/post';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-import { PostPage } from '../pages/post/post';
+import { PostViewPage } from '../pages/post-view/post-view';
 import { AuthService } from '../providers/auth-service';
 
 @NgModule({
@@ -15,8 +16,9 @@ import { AuthService } from '../providers/auth-service';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     PostPage,
+    TabsPage,
+    PostViewPage,
     LoginPage
   ],
   imports: [
@@ -28,8 +30,9 @@ import { AuthService } from '../providers/auth-service';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     PostPage,
+    TabsPage,
+    PostViewPage,
     LoginPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]

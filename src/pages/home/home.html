@@ -9,7 +9,7 @@
   	<div *ngIf="i<20" class="post">
   		<div class="post-header">
 	  		<img class="user-icon" src="http://bfapp-bfsharing.rhcloud.com{{post.postUser.imageUrl}}" />
-	  		<h1>{{post.postUser.username}}</h1>
+	  		<h1 class="username">{{post.postUser.username}}</h1>
   		</div>
   		<p (click)="showPost(post._id)">{{post.postText}}</p>
   		<div (click)="showPost(post._id)" class="post-footer">
