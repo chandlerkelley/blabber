@@ -14,7 +14,12 @@ export class LoginPage {
 							private authService: AuthService) {
 	}
 
-
+	ngOnInit() {
+		console.log("OnInit function is working");
+		if (this.authService.isLoggedIn()) {
+			this.navCtrl.setRoot(TabsPage);
+		}
+	}
 
 	credentials: any = {};
 
