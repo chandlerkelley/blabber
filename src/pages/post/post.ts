@@ -15,6 +15,8 @@ export class PostPage {
 
   user: any;
 
+  post: string;
+
   ionViewDidLoad() {
   	this.user = this.authService.returnCurrentUser();
   	console.log(this.user);
