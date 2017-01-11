@@ -15,7 +15,9 @@
 		</div>
 	</div>
 	<div class="user-buttons">
-		<button color="post" ion-button block><b>Change profile picture</b></button>
+		<button (click)="takePicture()" color="post" ion-button block><b>Change profile picture</b></button>
 		<button color="post" ion-button block (click)="logout()"><b>Log out</b></button>
 	</div>
+	<img [src]="imageURL" *ngIf="imageURL" />
+	<p *ngIf="imageURL">{{imageURL}}</p>
 </ion-content>
