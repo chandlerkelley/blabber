@@ -21,8 +21,14 @@ export class HomePage {
   	console.log(this.authService.returnCurrentUser());
   }
 
-  showPost() {
-  	this.navCtrl.push(PostPage)
+  showPost(postId) {
+    for (let post of this.feed) {
+      if (post._id === postId) {
+        this.navCtrl.push(PostPage, {
+          post: post
+        })
+      }
+    }
   }
 
   getFeed() {

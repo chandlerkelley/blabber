@@ -11,8 +11,8 @@
 	  		<img class="user-icon" src="http://bfapp-bfsharing.rhcloud.com{{post.postUser.imageUrl}}" />
 	  		<h1>{{post.postUser.username}}</h1>
   		</div>
-  		<p>{{post.postText}}</p>
-  		<div class="post-footer">
+  		<p (click)="showPost(post._id)">{{post.postText}}</p>
+  		<div (click)="showPost(post._id)" class="post-footer">
   			<p>{{post.comments.length}} comments</p>
 	  		<p *ngIf="post.originalPostText">Edited</p>
   		</div>

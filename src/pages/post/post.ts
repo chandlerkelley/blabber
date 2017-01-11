@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
 
@@ -10,12 +10,19 @@ import { AuthService } from '../../providers/auth-service';
 export class PostPage {
 
   constructor(public navCtrl: NavController,
+  						public navParams: NavParams,
   						private authService: AuthService) {
 
   };
 
+  post: any;
+
   back() {
   	this.navCtrl.pop();
+  }
+
+  ionViewDidLoad() {
+  	this.post = this.navParams.get('post');
   }
 
 }
