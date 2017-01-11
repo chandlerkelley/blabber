@@ -15,7 +15,7 @@
 
 		<div class="submit-comment">
 			<input [(ngModel)]="comment" placeholder="Write a comment..." />
-			<button (click)="submitComment()">POST</button>
+			<button (click)="submitComment()" [ngClass]="{'disabled': (!(comment) || comment.length === 0)}" [disabled]="(!(comment) || post.length === 0)">POST</button>
 		</div>
 
 		<div *ngFor="let comment of post.comments" class="post-comment">
