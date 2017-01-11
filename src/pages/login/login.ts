@@ -15,7 +15,7 @@ export class LoginPage {
 	}
 
 	ngOnInit() {
-		console.log("OnInit function is working");
+		console.log("Code has been updated");
 	}
 
 	credentials: any = {};
