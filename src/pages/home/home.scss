@@ -5,9 +5,6 @@ page-home {
 	background-color: #EDEFF2;
 }
 
-.custom-header {
-}
-
 .toolbar-title {
 	color: #fff;
 }
@@ -16,4 +13,19 @@ page-home {
 	background-color: #fff;
 	margin-bottom: 1vh;
 	padding: 2vh
+}
+
+.row {
+	display: flex;
+	align-items: center;
+}
+
+.row h1 {
+	margin: 0 2vh;
+}
+
+img.user-icon {
+	height: 7vh;
+	width: 7vh;
+	border-radius: 50%;
 }
