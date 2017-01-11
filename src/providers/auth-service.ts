@@ -46,8 +46,12 @@ export class AuthService {
 			.map(res => res.json())
 			.subscribe(
 				(data) => {
-					this.user = data;
-					resolve(true);
+					if (data._id) {
+						this.user = data;
+						resolve(true);
+					} else {
+						resolve(false);
+					}
 				},
 				(err) => {
 					console.log(err);
