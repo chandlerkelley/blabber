@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { AuthService } from '../../providers/auth-service';;
-import { PostViewPage } from '../post-view/post-view'
+import { AuthService } from '../../providers/auth-service';
+import { PostViewPage } from '../post-view/post-view';
 
 @Component({
   selector: 'page-home',

@@ -17,6 +17,18 @@ export class PostPage {
 
   post: string;
 
+  submitPost() {
+  	let postObj = {
+  		username: this.user.username,
+  		postText: this.post
+  	}
+  	this.authService.submitPost(postObj)
+  	.then( (res) => {
+  		console.log(res);
+  		this.navCtrl.parent.select(1);
+  	})
+  }
+
   ionViewDidLoad() {
   	this.user = this.authService.returnCurrentUser();
   	console.log(this.user);

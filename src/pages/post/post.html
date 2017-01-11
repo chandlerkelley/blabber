@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar color="test">
-    <ion-title>
-      Blabber
+    <ion-title class="title">
+      blabber
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-	<button ion-button full color="post" [ngClass]="{'disabled': (!(post) || post.length === 0)}"><b>Post</b></button>
+	<button ion-button full color="post" (click)="submitPost()" [ngClass]="{'disabled': (!(post) || post.length === 0)}"><b>Post</b></button>
 	<div class="post-header" *ngIf="user">
 		<img class="user-icon" src="http://bfapp-bfsharing.rhcloud.com{{user.imageUrl}}" />
 		<h1 class="username">{{user.username}}</h1>
