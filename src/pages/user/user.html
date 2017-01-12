@@ -15,9 +15,25 @@
 		</div>
 	</div>
 	<div class="user-buttons">
-		<button (click)="takePicture()" color="post" ion-button block><b>Change profile picture</b></button>
+		<button (click)="toggleChangingPic()" color="post" ion-button block><b>Change profile picture</b></button>
+		<div class="pic-options" *ngIf="changingPic && !(previewingPic)">
+			<button ion-button class="pic-button" (click)="takePicture()"><b>Take pic</b></button>
+			<button ion-button class="pic-button" (click)="uploadPicture()" ><b>Upload pic</b></button>
+		</div>
+		<div class="pic-preview" *ngIf="(changingPic && previewingPic)">
+			<img [src]="photo.imageFile" *ngIf="photo.imageFile" />
+			<div class="preview-right">
+				<h1>Set new profile picture?</h1>
+				<div class="confirm-buttons">
+					<form (ngSubmit)="submitPhoto()">
+						<ion-input class="hidden-input" type="file" name="imageFile" [(ngModel)]="photo.imageFile"></ion-input>
+						<button ion-button class="pic-button" type="submit">Confirm</button>
+					</form>
+					<button ion-button class="pic-button" (click)="clearPhoto()">Cancel</button>
+				</div>
+			</div>
+		</div>
 		<button color="post" ion-button block (click)="logout()"><b>Log out</b></button>
 	</div>
-	<img [src]="imageURL" *ngIf="imageURL" />
-	<p *ngIf="imageURL">{{imageURL}}</p>
+	<p *ngIf="log">{{this.log}}</p>
 </ion-content>

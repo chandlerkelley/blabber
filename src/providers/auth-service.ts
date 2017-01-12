@@ -9,12 +9,6 @@ export class AuthService {
 
 	user: User;
 
-	test: string;
-
-	setTest(string) {
-		this.test = string;
-	}
-
   constructor(public http: Http) {
     console.log('Hello AuthService Provider');
   }
@@ -74,7 +68,7 @@ export class AuthService {
 
 	getFeed() {
 		return new Promise(resolve => {
-			this.http.get('http://bfapp-bfsharing.rhcloud.com/feed', { withCredentials: true })
+			this.http.get('https://bfapp-bfsharing.rhcloud.com/feed', { withCredentials: true })
       .map(res => res.json())
 			.subscribe(
 				(data) => {
@@ -85,7 +79,7 @@ export class AuthService {
 
 	submitPost(post) {
 		return new Promise(resolve => {
-			this.http.post('http://bfapp-bfsharing.rhcloud.com/post', post, { withCredentials: true })
+			this.http.post('https://bfapp-bfsharing.rhcloud.com/post', post, { withCredentials: true })
 			.map(res => res.json())
 			.subscribe(
 				(data) => {
@@ -97,11 +91,26 @@ export class AuthService {
 
 	submitComment(comment) {
 		return new Promise(resolve => {
-			this.http.post('http://bfapp-bfsharing.rhcloud.com/comment', comment, { withCredentials: true })
+			this.http.post('https://bfapp-bfsharing.rhcloud.com/comment', comment, { withCredentials: true })
 			.map(res => res.json())
 			.subscribe(
 				(data) => {
 					resolve(data);
+				}
+			)
+		})
+	}
+
+	submitPhoto(photo) {
+		let username = this.user.username;
+		return new Promise(resolve => {
+			this.http.put('https://bfapp-bfsharing.rhcloud.com/user/' + username + '/profilepic', photo, { withCredentials: true })
+			.map(res => res.json())
+			.subscribe(
+				(data) => {
+					console.log(data);
+					this.user = data;
+					resolve(this.user);
 				}
 			)
 		})

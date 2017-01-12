@@ -11,7 +11,7 @@ import { LoginPage } from '../login/login';
 })
 export class UserPage {
 
-  imageURL
+  photo: any = {};
 
   constructor(public navCtrl: NavController,
   						private authService: AuthService) {
@@ -20,11 +20,57 @@ export class UserPage {
 
   user: any;
   userTimeSince: string;
+  changingPic: boolean = false;
+  previewingPic: boolean = false;
+
+  log: string;
+
+  toggleChangingPic() {
+    if (this.changingPic) {
+      this.changingPic = false;
+    } else {
+      this.changingPic = true;
+    }
+  }
+
+  uploadPicture(){
+    Camera.getPicture({
+      sourceType : Camera.PictureSourceType.PHOTOLIBRARY, 
+      quality: 50,
+      targetHeight: 200,
+      targetWidth: 200,
+      allowEdit: true
+    })
+    .then( (imageData) => {
+      this.photo.imageFile = imageData;
+      this.previewingPic = true;
+    })
+  }
 
   takePicture(){
-    Camera.getPicture()
+    Camera.getPicture({
+      quality: 50,
+      targetHeight: 200,
+      targetWidth: 200,
+      allowEdit: true
+    })
     .then( (imageData) => {
-      this.imageURL = imageData
+      this.photo.imageFile = imageData;
+      console.log("PHOTO OBJECT IS " + this.photo);
+      this.previewingPic = true;
+    })
+  }
+
+  clearPhoto() {
+    this.photo = {};
+    this.previewingPic = false;
+  }
+
+  submitPhoto() {
+    console.log(this.photo);
+    this.authService.submitPhoto(this.photo)
+    .then( (res) => {
+      this.log = res.toString();
     })
   }
 
