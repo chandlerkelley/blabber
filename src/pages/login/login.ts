@@ -22,9 +22,12 @@ export class LoginPage {
 
 	loginUser(): void {
 		this.authService.loginUser(this.credentials)
-		.then(res => {
+		.then((res: any) => {
 			console.log(res);
-			this.navCtrl.setRoot(TabsPage);
+			
+			if(res.status != 400) {
+				this.navCtrl.setRoot(TabsPage);
+			}
 		})
 	}
 }
