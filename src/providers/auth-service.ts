@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {File, Transfer} from 'ionic-native';
 
 import { User } from '../app/user';
 
@@ -101,18 +102,22 @@ export class AuthService {
 		})
 	}
 
-	submitPhoto(photo) {
+	submitPhoto(photoUrl) {
 		let username = this.user.username;
+		let address = 'https://bfapp-bfsharing.rhcloud.com/user/' + username + '/profilepic';
+		let options = {
+			fileKey: "imageFile",
+			httpMethod: "PUT"
+		}
+
 		return new Promise(resolve => {
-			this.http.put('https://bfapp-bfsharing.rhcloud.com/user/' + username + '/profilepic', photo, { withCredentials: true })
-			.map(res => res.json())
-			.subscribe(
-				(data) => {
-					console.log(data);
-					this.user = data;
-					resolve(this.user);
-				}
-			)
+			var ft = new Transfer();
+			ft.upload(photoUrl, encodeURI(address), options, false)
+			.then(res => {
+				this.user = JSON.parse(res.response);
+				console.log(this.user);
+				resolve(res.response);
+			})
 		})
 	}
 

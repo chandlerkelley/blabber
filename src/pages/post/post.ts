@@ -31,9 +31,8 @@ export class PostPage {
     }
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
   	this.user = this.authService.returnCurrentUser();
-  	console.log(this.user);
   }
 
 }

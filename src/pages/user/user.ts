@@ -67,9 +67,12 @@ export class UserPage {
 
   submitPhoto() {
     console.log(this.photo);
-    this.authService.submitPhoto(this.photo)
+    this.authService.submitPhoto(this.photo.imageFile)
     .then( (res) => {
       console.log(res);
+      this.resetUser();
+      this.changingPic = false;
+      this.previewingPic = false;
     })
   }
 
@@ -109,13 +112,16 @@ export class UserPage {
         return interval + " minutes";
     }
     return Math.floor(seconds) + " seconds";
-}
+  }
 
-  ionViewDidLoad() {
+  resetUser() {
     this.user = this.authService.returnCurrentUser();
-    console.log(this.user);
     let userCreatedDate = Date.parse(this.user.createdDate);
     this.userTimeSince = this.timeSince(userCreatedDate);
+  }
+
+  ionViewDidLoad() {
+    this.resetUser();
   }
 
 }
