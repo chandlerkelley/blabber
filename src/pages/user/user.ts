@@ -23,8 +23,6 @@ export class UserPage {
   changingPic: boolean = false;
   previewingPic: boolean = false;
 
-  log: string;
-
   toggleChangingPic() {
     if (this.changingPic) {
       this.changingPic = false;
@@ -50,6 +48,7 @@ export class UserPage {
   takePicture(){
     Camera.getPicture({
       quality: 50,
+      destinationType : Camera.DestinationType.FILE_URI, 
       targetHeight: 200,
       targetWidth: 200,
       allowEdit: true
@@ -70,7 +69,7 @@ export class UserPage {
     console.log(this.photo);
     this.authService.submitPhoto(this.photo)
     .then( (res) => {
-      this.log = res.toString();
+      console.log(res);
     })
   }
 
@@ -78,7 +77,7 @@ export class UserPage {
   	this.authService.logout()
   	.then( (res) => {
   		console.log(res);
-			this.navCtrl.setRoot(LoginPage);
+      window.location.reload();
   	})
   }
 
