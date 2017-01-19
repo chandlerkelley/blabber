@@ -11,7 +11,7 @@ import { LoginPage } from '../login/login';
 })
 export class UserPage {
 
-  photo
+  photo: any = {};
 
   constructor(public navCtrl: NavController,
   						private authService: AuthService) {
@@ -40,7 +40,7 @@ export class UserPage {
       allowEdit: true
     })
     .then( (imageData) => {
-      this.photo = imageData;
+      this.photo.imageFile = imageData;
       this.previewingPic = true;
     })
   }
@@ -54,7 +54,7 @@ export class UserPage {
       allowEdit: true
     })
     .then( (imageData) => {
-      this.photo = imageData;
+      this.photo.imageFile = imageData;
       this.previewingPic = true;
     })
   }
@@ -66,7 +66,7 @@ export class UserPage {
 
   submitPhoto() {
     console.log(this.photo);
-    this.authService.submitPhoto(this.photo)
+    this.authService.submitPhoto(this.photo.imageFile)
     .then( (res) => {
       console.log(res);
       this.resetUser();
